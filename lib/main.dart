@@ -7,10 +7,19 @@ import 'package:flutter_pos_app/models/model_bar.dart';
 import 'package:flutter_pos_app/widgets/item_bar.dart';
 import 'package:flutter_pos_app/widgets/logo_bar.dart';
 
+import 'database/database.dart';
+
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // ProducsController();
+  //WidgetsFlutterBinding.ensureInitialized();
+
+  //  ProducsController();
+  initServices();
   runApp(const MyApp());
+}
+
+initServices() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Get.putAsync<AppDatabase>(() => AppDatabase.init());
 }
 
 class MyApp extends StatelessWidget {

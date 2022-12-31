@@ -5,8 +5,8 @@ class itemBar extends StatelessWidget{
   final IconData icon;
   final tap_state;
   const itemBar({
-    this.menu,
-    this.icon,
+    required this.menu,
+    required this.icon,
     this.tap_state,
   });
   @override

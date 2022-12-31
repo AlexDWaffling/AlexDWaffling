@@ -10,7 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ProducsController _producsController = Get.put(ProducsController());
+  final ProductsController _productsController = Get.put(ProductsController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Expanded(
                 child: Obx(() => GridView.builder(
-                    itemCount: _producsController.productItem.length,
+                    itemCount: _productsController.products.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4,
@@ -67,9 +68,10 @@ class _HomePageState extends State<HomePage> {
                             childAspectRatio: (1 / 1.2)),
                     itemBuilder: (context, index) {
                       return _item(
-                        title: _producsController.productItem[index].name,
-                        price: _producsController.productItem[index].price,
-                      );
+                        image: _productsController.products[index].image, 
+                        title: _productsController.products[index].name, 
+                        price: _productsController.products[index].price, 
+                        quantity: _productsController.products[index].quantity);
                     })),
               ),
             ],
@@ -216,10 +218,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _itemOrder({
-    String image,
-    String title,
-    String qty,
-    String price,
+    required String image,
+    required String title,
+    required String qty,
+    required String price,
   }) {
     return Container(
       padding: const EdgeInsets.all(8),
@@ -280,10 +282,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _item({
-    String image,
-    String title,
-    double price,
-    String item,
+    required String image,
+    required String title,
+    required String price,
+    required int quantity
   }) {
     return Container(
       margin: const EdgeInsets.only(right: 20, bottom: 20),
@@ -326,7 +328,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Text(
-                item,
+                quantity.toString(),
                 style: const TextStyle(
                   color: Colors.white60,
                   fontSize: 12,
@@ -339,7 +341,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _itemTab({String icon, String title, bool isActive}) {
+  Widget _itemTab({
+    required String icon, 
+    required String title, 
+    required bool isActive}) {
     return Container(
       width: 180,
       margin: const EdgeInsets.only(right: 26),
@@ -372,9 +377,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _topMenu({
-    String title,
-    String subTitle,
-    Widget action,
+    required String title,
+    required String subTitle,
+    required Widget action,
   }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,

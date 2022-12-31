@@ -1,3 +1,3 @@
 import '../controllers/productController.dart';
 
-ProducsController producsController = ProducsController.instance;
+ProductsController producsController = ProductsController.instance;
