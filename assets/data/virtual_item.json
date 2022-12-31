@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    },
+    {
+        "id": 2,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    },
+    {
+        "id": 3,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    },
+    {
+        "id": 4,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    },
+    {
+        "id": 5,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    },
+    {
+        "id": 6,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    },
+    {
+        "id": 7,
+        "image": "/path",
+        "name": "A",
+        "price": "3000",
+        "category": "XXX",
+        "quantity": 5
+    }
+]
