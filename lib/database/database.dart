@@ -7,7 +7,7 @@ import '../entity/item.dart';
 
 part 'database.g.dart';
 
-@Database(version: 2, entities: [ProductItem])
+@Database(version: 1, entities: [ProductItem])
 abstract class AppDatabase extends FloorDatabase{
   ItemDAO get itemDAO;
   static Future<AppDatabase> init() async {

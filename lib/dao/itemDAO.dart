@@ -1,11 +1,13 @@
 import 'package:floor/floor.dart';
 import 'package:flutter_pos_app/entity/item.dart';
-import 'package:flutter_pos_app/models/product_item.dart';
 
 @dao
 abstract class ItemDAO{
   @Query('SELECT * FROM ProductItem')
-  Stream<List<ProductItem>> getAllItems();
+  Future<List<ProductItem>> getAllItems();
+
+  @Query('SELECT * FROM ProductItem WHERE category =:category')
+  Future<List<ProductItem>> getAllItemsByCategory(String category);
 
   @insert
   Future<void> insertItem(ProductItem productItem);
@@ -15,5 +17,8 @@ abstract class ItemDAO{
 
   @delete
   Future<void> deleteItem(ProductItem productItem);
+
+  @Query('DELETE FROM ProductItem')
+  Future<void> deleteAllItem();
 
 }

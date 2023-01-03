@@ -1,58 +1,90 @@
 [
     {
-        "id": 0,
-        "image": "/path",
-        "name": "A",
-        "price": "3000",
-        "category": "XXX",
+        "id": 1,
+        "image": "assets/icons/icon-burger.png",
+        "name": "Fish",
+        "price": "200",
+        "category": "Main",
         "quantity": 5
     },
     {
         "id": 2,
-        "image": "/path",
-        "name": "A",
-        "price": "3000",
-        "category": "XXX",
-        "quantity": 5
+        "image": "assets/icons/icon-desserts.png",
+        "name": "Shrimp",
+        "price": "3800",
+        "category": "Main",
+        "quantity": 4
     },
     {
         "id": 3,
-        "image": "/path",
-        "name": "A",
+        "image": "assets/icons/icon-burger.png",
+        "name": "Cake",
         "price": "3000",
-        "category": "XXX",
-        "quantity": 5
+        "category": "Side",
+        "quantity": 33
     },
     {
         "id": 4,
-        "image": "/path",
-        "name": "A",
+        "image": "assets/icons/icon-burger.png",
+        "name": "Tea",
         "price": "3000",
-        "category": "XXX",
-        "quantity": 5
+        "category": "Drink",
+        "quantity": 1
     },
     {
         "id": 5,
-        "image": "/path",
-        "name": "A",
+        "image": "assets/icons/icon-burger.png",
+        "name": "Fruit",
         "price": "3000",
-        "category": "XXX",
+        "category": "Side",
         "quantity": 5
     },
     {
         "id": 6,
-        "image": "/path",
-        "name": "A",
+        "image": "assets/icons/icon-burger.png",
+        "name": "Ice Cream",
         "price": "3000",
-        "category": "XXX",
+        "category": "Side",
         "quantity": 5
     },
     {
         "id": 7,
-        "image": "/path",
-        "name": "A",
+        "image": "assets/icons/icon-burger.png",
+        "name": "Steak",
         "price": "3000",
-        "category": "XXX",
+        "category": "Main",
+        "quantity": 9
+    },
+    {
+        "id": 8,
+        "image": "assets/icons/icon-burger.png",
+        "name": "Coffe",
+        "price": "3000",
+        "category": "Drink",
+        "quantity": 5
+    },
+    {
+        "id": 9,
+        "image": "assets/icons/icon-burger.png",
+        "name": "Volka",
+        "price": "3000",
+        "category": "Wine",
+        "quantity": 5
+    },
+    {
+        "id": 10,
+        "image": "assets/icons/icon-burger.png",
+        "name": "Tequila",
+        "price": "3000",
+        "category": "Wine",
+        "quantity": 5
+    },
+    {
+        "id": 11,
+        "image": "assets/icons/icon-burger.png",
+        "name": "Tequila",
+        "price": "3000",
+        "category": "Wine",
         "quantity": 5
     }
 ]

@@ -15,6 +15,7 @@ class itemBar extends StatelessWidget{
       padding: const EdgeInsets.symmetric(vertical: 9),
       child: InkWell(
         onTap: tap_state,
+        hoverColor: Colors.deepOrangeAccent,
         child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: AnimatedContainer(

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Home",
+        "icon": "Icons.rocket_sharp"
+    },
+    {
+        "name": "Menu",
+        "icon": "Icons.format_list_bulleted_rounded"
+    },
+    {
+        "name": "History",
+        "icon": "Icons.history_toggle_off_rounded"
+    },
+    {
+        "name": "Promos",
+        "icon": "Icons.discount_outlined"
+    },
+    {
+        "name": "Settings",
+        "icon": "Icons.sports_soccer_outlined"
+    }
+]

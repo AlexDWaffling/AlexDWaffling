@@ -69,7 +69,7 @@ class _$AppDatabase extends AppDatabase {
     Callback? callback,
   ]) async {
     final databaseOptions = sqflite.OpenDatabaseOptions(
-      version: 2,
+      version: 1,
       onConfigure: (database) async {
         await database.execute('PRAGMA foreign_keys = ON');
         await callback?.onConfigure?.call(database);
@@ -103,7 +103,7 @@ class _$ItemDAO extends ItemDAO {
   _$ItemDAO(
     this.database,
     this.changeListener,
-  )   : _queryAdapter = QueryAdapter(database, changeListener),
+  )   : _queryAdapter = QueryAdapter(database),
         _productItemInsertionAdapter = InsertionAdapter(
             database,
             'ProductItem',
@@ -114,8 +114,7 @@ class _$ItemDAO extends ItemDAO {
                   'category': item.category,
                   'price': item.price,
                   'quantity': item.quantity
-                },
-            changeListener),
+                }),
         _productItemUpdateAdapter = UpdateAdapter(
             database,
             'ProductItem',
@@ -127,8 +126,7 @@ class _$ItemDAO extends ItemDAO {
                   'category': item.category,
                   'price': item.price,
                   'quantity': item.quantity
-                },
-            changeListener),
+                }),
         _productItemDeletionAdapter = DeletionAdapter(
             database,
             'ProductItem',
@@ -140,8 +138,7 @@ class _$ItemDAO extends ItemDAO {
                   'category': item.category,
                   'price': item.price,
                   'quantity': item.quantity
-                },
-            changeListener);
+                });
 
   final sqflite.DatabaseExecutor database;
 
@@ -156,17 +153,34 @@ class _$ItemDAO extends ItemDAO {
   final DeletionAdapter<ProductItem> _productItemDeletionAdapter;
 
   @override
-  Stream<List<ProductItem>> getAllItems() {
-    return _queryAdapter.queryListStream('SELECT * FROM ProductItem',
+  Future<List<ProductItem>> getAllItems() async {
+    return _queryAdapter.queryList('SELECT * FROM ProductItem',
         mapper: (Map<String, Object?> row) => ProductItem(
-            id: row['id'] as int,
-            image: row['image'] as String,
-            name: row['name'] as String,
-            quantity: row['quantity'] as int,
-            price: row['price'] as String,
-            category: row['category'] as String),
-        queryableName: 'ProductItem',
-        isView: false);
+            row['id'] as int,
+            row['image'] as String,
+            row['name'] as String,
+            row['quantity'] as int,
+            row['price'] as String,
+            row['category'] as String));
+  }
+
+  @override
+  Future<List<ProductItem>> getAllItemsByCategory(String category) async {
+    return _queryAdapter.queryList(
+        'SELECT * FROM ProductItem WHERE category =?1',
+        mapper: (Map<String, Object?> row) => ProductItem(
+            row['id'] as int,
+            row['image'] as String,
+            row['name'] as String,
+            row['quantity'] as int,
+            row['price'] as String,
+            row['category'] as String),
+        arguments: [category]);
+  }
+
+  @override
+  Future<void> deleteAllItem() async {
+    await _queryAdapter.queryNoReturn('DELETE FROM ProductItem');
   }
 
   @override

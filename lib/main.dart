@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/controllers/productController.dart';
+import 'package:flutter_pos_app/models/model_tab.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import 'package:flutter_pos_app/home.dart';
@@ -9,26 +10,41 @@ import 'package:flutter_pos_app/widgets/logo_bar.dart';
 
 import 'database/database.dart';
 
-void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // static Future<AppDatabase> init() async {
+  //   AppDatabase instance = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  //   return instance;
+  // }
+  await Get.putAsync<AppDatabase>(() async {
+    final instance = await $FloorAppDatabase
+        .databaseBuilder('app_database.db')
+        .build();
+    return instance;
+  });
 
   //  ProducsController();
-  initServices();
+  // initServices();
   runApp(const MyApp());
 }
 
-initServices() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Get.putAsync<AppDatabase>(() => AppDatabase.init());
-}
+// initServices() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+  
+//   await Get.putAsync<AppDatabase>(() => AppDatabase.init());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({key});
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ItemModelBar(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ItemModelBar()),
+        ChangeNotifierProvider(create: (context) => ItemModelTab()),
+      ],
       child: const MaterialApp(
         home: MainPage(),
         debugShowCheckedModeBanner: false,
